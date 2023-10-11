@@ -19,7 +19,7 @@ const PostCard = ({ id, title, body }) => {
       </Typography>
       <Typography sx={{ fontFamily: "Gabarito" }}>{body}</Typography>
 
-      {/* Like and Dislike */}
+      {/* Like and Dislike btns */}
       <LikeAndDislikeBtns />
     </Box>
   );

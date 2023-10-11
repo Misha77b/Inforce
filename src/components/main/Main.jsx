@@ -7,6 +7,7 @@ import { fetchPosts } from "../../store/reducers/postsSlice";
 import PostsList from "../postsList/PostsList";
 import Loader from "../loader/Loader";
 import PaginationNav from "../pagination/PaginationNav";
+import Search from "../search/Search";
 
 const Main = () => {
   const dispatch = useDispatch();
@@ -44,6 +45,7 @@ const Main = () => {
         alignItems: "center",
       }}
     >
+      <Search />
       {loading ? (
         <Loader />
       ) : (
