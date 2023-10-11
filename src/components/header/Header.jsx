@@ -4,8 +4,19 @@ import { Box, AppBar, Toolbar, Typography } from "@mui/material";
 const Header = () => {
   return (
     <Box>
-      <AppBar position="static" sx={{ background: "transparent" }}>
-        <Toolbar sx={{ display: "felx", justifyContent: "center" }}>
+      <AppBar
+        position="static"
+        sx={{
+          marginBottom: "30px",
+          background: "transparent",
+        }}
+      >
+        <Toolbar
+          sx={{
+            display: "felx",
+            justifyContent: "center",
+          }}
+        >
           <Typography
             variant="h6"
             sx={{

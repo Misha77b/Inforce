@@ -9,8 +9,8 @@ export const fetchPosts = createAsyncThunk(
   "posts/fetchData",
   async ({ params }) => {
     const response = await fetch(
-      //   `https://jsonplaceholder.typicode.com/posts?${params}&_limit=10`,
-      `https://jsonplaceholder.typicode.com/posts?${params}`,
+      `https://jsonplaceholder.typicode.com/posts?${params}&_limit=10`,
+      //   `https://jsonplaceholder.typicode.com/posts?${params}`,
       {
         method: "GET",
         headers: {

@@ -35,7 +35,7 @@ const PostsList = ({ postsdata }) => {
                 justifyContent: "center",
               }}
             >
-              <PostCard title={post.title} body={post.body} />
+              <PostCard id={post.id} title={post.title} body={post.body} />
             </Grid>
           );
         })}

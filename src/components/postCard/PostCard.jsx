@@ -1,14 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Box, Typography, IconButton } from "@mui/material";
-import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
-import ThumbDownOffAltIcon from "@mui/icons-material/ThumbDownOffAlt";
-import { cardSxStyle, likeDislikeBtns } from "./postCarsSxStyles";
+import { Box, Typography } from "@mui/material";
+import { cardSxStyle } from "./postCarsSxStyles";
+import LikeAndDislikeBtns from "./components/LikeAndDislikeBtns";
 
-const PostCard = ({ title, body }) => {
+const PostCard = ({ id, title, body }) => {
   return (
     <Box sx={cardSxStyle}>
       {/* text */}
+      <Typography sx={{ textAlign: "center", fontFamily: "Jost" }} variant="h6">
+        Post №{id}
+      </Typography>
       <Typography
         variant="h6"
         sx={{ marginBottom: "10px", fontFamily: "Jost" }}
@@ -18,26 +20,7 @@ const PostCard = ({ title, body }) => {
       <Typography sx={{ fontFamily: "Gabarito" }}>{body}</Typography>
 
       {/* Like and Dislike */}
-      <Box sx={likeDislikeBtns}>
-        <IconButton
-          sx={{
-            "&:hover": {
-              color: "green",
-            },
-          }}
-        >
-          <ThumbUpOffAltIcon />
-        </IconButton>
-        <IconButton
-          sx={{
-            "&:hover": {
-              color: "red",
-            },
-          }}
-        >
-          <ThumbDownOffAltIcon />
-        </IconButton>
-      </Box>
+      <LikeAndDislikeBtns />
     </Box>
   );
 };
@@ -45,6 +28,7 @@ const PostCard = ({ title, body }) => {
 export default PostCard;
 
 PostCard.propTypes = {
+  id: PropTypes.number,
   title: PropTypes.string,
   body: PropTypes.string,
 };

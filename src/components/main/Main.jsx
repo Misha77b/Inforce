@@ -6,6 +6,7 @@ import { Box } from "@mui/material";
 import { fetchPosts } from "../../store/reducers/postsSlice";
 import PostsList from "../postsList/PostsList";
 import Loader from "../loader/Loader";
+import PaginationNav from "../pagination/PaginationNav";
 
 const Main = () => {
   const dispatch = useDispatch();
@@ -19,8 +20,6 @@ const Main = () => {
 
   const loading = useSelector((state) => state.postsReducer.loader);
   const posts = useSelector((state) => state.postsReducer.posts);
-
-  console.log(loading);
   console.log(posts);
 
   useEffect(() => {
@@ -32,7 +31,8 @@ const Main = () => {
   }, [currentPage]);
 
   useEffect(() => {
-    dispatch(fetchPosts(params));
+    dispatch(fetchPosts({ params }));
+    window.scrollTo({ top: 0 });
   }, [pageNumber]);
 
   return (
@@ -44,7 +44,17 @@ const Main = () => {
         alignItems: "center",
       }}
     >
-      {loading ? <Loader /> : <PostsList postsdata={posts} />}
+      {loading ? (
+        <Loader />
+      ) : (
+        <>
+          <PostsList postsdata={posts} />
+          <PaginationNav
+            pageNumber={pageNumber}
+            setPageNumber={setPageNumber}
+          />
+        </>
+      )}
     </Box>
   );
 };
