@@ -8,3 +8,15 @@ export const iconButtonStyle = {
   background: "lightgray",
   borderRadius: "10px",
 };
+
+export const suggestionsBoxStyle = {
+  position: "absolute",
+  top: "57px",
+  width: "100%",
+  border: "2px solid lightgray",
+  zIndex: "100",
+  display: "flex",
+  flexDirection: "column",
+  background: "white",
+  gap: "5px",
+};

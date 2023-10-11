@@ -13,7 +13,6 @@ const Main = () => {
   const dispatch = useDispatch();
   const [search, setSearch] = useSearchParams();
   const { params } = useLocationParams();
-  console.log(`params = ${params}`);
 
   // pagination
   const [pageNumber, setPageNumber] = useState(1);
@@ -21,7 +20,7 @@ const Main = () => {
 
   const loading = useSelector((state) => state.postsReducer.loader);
   const posts = useSelector((state) => state.postsReducer.posts);
-  console.log(posts);
+  console.log(`Fetch posts data:`, posts);
 
   useEffect(() => {
     if (currentPage === null) {
