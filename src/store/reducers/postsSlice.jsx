@@ -5,22 +5,26 @@ const initialState = {
   loader: true,
 };
 
-export const fetchPosts = createAsyncThunk("posts/fetchData", async () => {
-  const response = await fetch(
-    `https://jsonplaceholder.typicode.com/posts?_page=7`,
-    {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }
-  )
-    .then((res) => res.json())
-    .catch((err) => {
-      console.warn(err);
-    });
-  return response;
-});
+export const fetchPosts = createAsyncThunk(
+  "posts/fetchData",
+  async ({ params }) => {
+    const response = await fetch(
+      //   `https://jsonplaceholder.typicode.com/posts?${params}&_limit=10`,
+      `https://jsonplaceholder.typicode.com/posts?${params}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    )
+      .then((res) => res.json())
+      .catch((err) => {
+        console.warn(err);
+      });
+    return response;
+  }
+);
 
 export const postsSlice = createSlice({
   name: "posts",

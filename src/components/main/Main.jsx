@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useSearchParams } from "react-router-dom";
+import useLocationParams from "../../hooks/useLocationParams";
 import { Box } from "@mui/material";
 import { fetchPosts } from "../../store/reducers/postsSlice";
 import PostsList from "../postsList/PostsList";
@@ -7,6 +9,13 @@ import Loader from "../loader/Loader";
 
 const Main = () => {
   const dispatch = useDispatch();
+  const [search, setSearch] = useSearchParams();
+  const { params } = useLocationParams();
+  console.log(`params = ${params}`);
+
+  // pagination
+  const [pageNumber, setPageNumber] = useState(1);
+  const currentPage = search.get("_page");
 
   const loading = useSelector((state) => state.postsReducer.loader);
   const posts = useSelector((state) => state.postsReducer.posts);
@@ -15,8 +24,16 @@ const Main = () => {
   console.log(posts);
 
   useEffect(() => {
-    dispatch(fetchPosts());
-  }, []);
+    if (currentPage === null) {
+      setPageNumber(currentPage ? parseInt(currentPage) : 1);
+    } else {
+      setPageNumber(currentPage ? parseInt(currentPage) : 1);
+    }
+  }, [currentPage]);
+
+  useEffect(() => {
+    dispatch(fetchPosts(params));
+  }, [pageNumber]);
 
   return (
     <Box

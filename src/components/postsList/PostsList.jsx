@@ -1,5 +1,6 @@
-import { Box, Grid } from "@mui/material";
 import React from "react";
+import PropTypes from "prop-types";
+import { Box, Grid } from "@mui/material";
 import PostCard from "../postCard/PostCard";
 
 const PostsList = ({ postsdata }) => {
@@ -34,7 +35,7 @@ const PostsList = ({ postsdata }) => {
                 justifyContent: "center",
               }}
             >
-              <PostCard id={post.id} title={post.title} body={post.body} />
+              <PostCard title={post.title} body={post.body} />
             </Grid>
           );
         })}
@@ -44,3 +45,7 @@ const PostsList = ({ postsdata }) => {
 };
 
 export default PostsList;
+
+PostsList.propTypes = {
+  postsdata: PropTypes.array,
+};

@@ -1,10 +1,11 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Box, Typography, IconButton } from "@mui/material";
 import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
 import ThumbDownOffAltIcon from "@mui/icons-material/ThumbDownOffAlt";
 import { cardSxStyle, likeDislikeBtns } from "./postCarsSxStyles";
 
-const PostCard = ({ id, title, body }) => {
+const PostCard = ({ title, body }) => {
   return (
     <Box sx={cardSxStyle}>
       {/* text */}
@@ -42,3 +43,8 @@ const PostCard = ({ id, title, body }) => {
 };
 
 export default PostCard;
+
+PostCard.propTypes = {
+  title: PropTypes.string,
+  body: PropTypes.string,
+};
