@@ -3,7 +3,7 @@ import { Box, AppBar, Toolbar, Typography } from "@mui/material";
 
 const Header = () => {
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box>
       <AppBar position="static" sx={{ background: "transparent" }}>
         <Toolbar sx={{ display: "felx", justifyContent: "center" }}>
           <Typography

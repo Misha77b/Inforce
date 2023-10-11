@@ -3,8 +3,8 @@ import "./loader.scss";
 
 const Loader = () => {
   return (
-    <div class="loader-box">
-      <div class="lds-grid">
+    <div className="loader-box">
+      <div className="lds-grid">
         <div></div>
         <div></div>
         <div></div>

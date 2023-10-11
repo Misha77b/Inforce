@@ -4,21 +4,37 @@ import PostCard from "../postCard/PostCard";
 
 const PostsList = ({ postsdata }) => {
   return (
-    <Box sx={{ width: "80%" }}>
-      <Grid container spacing={{ xs: 2, md: 3 }}>
+    <Box
+      sx={{
+        width: "80%",
+        "@media screen and (max-width: 600px)": {
+          width: "100%",
+        },
+      }}
+    >
+      {/* cards grid container */}
+      <Grid
+        container
+        spacing={{ xs: 2, md: 3 }}
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
+        {/* render cards */}
         {postsdata.map((post) => {
           return (
             <Grid
+              key={post.id}
               item
-              xs={6}
-              sx={{ display: "flex", justifyContent: "center" }}
+              sm={12}
+              md={6}
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+              }}
             >
-              <PostCard
-                key={post.id}
-                id={post.id}
-                title={post.title}
-                body={post.body}
-              />
+              <PostCard id={post.id} title={post.title} body={post.body} />
             </Grid>
           );
         })}
